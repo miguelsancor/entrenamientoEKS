@@ -192,11 +192,10 @@ añadir loadbalancer
  ```
 
 1.1 si no funciona probar los siguiente comandos:
-    ```bash
+ ```bash
 
 argocd login 127.0.0.1:8080 --username admin --password <lo_que_sacaste_arriba> --insecure
 argocd repo add https://github.com/miguelsancor/entrenamientoEKS.git --insecure
-
 ```
 
 2. Cree una nueva aplicación:
