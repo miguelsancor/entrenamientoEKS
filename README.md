@@ -164,8 +164,8 @@ Después de que Terraform haya creado el clúster, debe autenticarse para intera
    ```
 añadir loadbalancer
 ```bash
-   kubectl edit svc argocd-server -n argocd
-   type: LoadBalancer
+kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+
 ```
 
 2. Acceda a ArgoCD en su navegador en `https://localhost:8080`.
