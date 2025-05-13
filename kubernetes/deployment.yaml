@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: test-api
-        image: 726181941323.dkr.ecr.us-west-2.amazonaws.com/test-api-repo:latest
+        image: 816069129828.dkr.ecr.us-east-2.amazonaws.com/test-api-repo:latest
         ports:
         - containerPort: 80
