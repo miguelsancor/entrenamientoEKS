@@ -1,20 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-api
+  name: argocd-server
   namespace: argocd
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: test-api
+      app.kubernetes.io/name: argocd-server
   template:
     metadata:
       labels:
-        app: test-api
+        app.kubernetes.io/name: argocd-server
     spec:
       containers:
       - name: test-api
-        image: 726181941323.dkr.ecr.us-west-2.amazonaws.com/test-api-repo:latest
+        image: 816069129828.dkr.ecr.us-east-2.amazonaws.com/test-api-repo:latest
         ports:
         - containerPort: 80
+
