@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: argocd-server
-  namespace: argocd
+  name: flask-api
+  namespace: default
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app.kubernetes.io/name: argocd-server
+      app: flask-api
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: argocd-server
+        app: flask-api
     spec:
       containers:
-      - name: test-api
-        image: 816069129828.dkr.ecr.us-east-2.amazonaws.com/test-api-repo:latest
-        ports:
-        - containerPort: 80
+        - name: test-api
+          image: 816069129828.dkr.ecr.us-east-2.amazonaws.com/test-api-repo:latest
+          ports:
+            - containerPort: 80
 
