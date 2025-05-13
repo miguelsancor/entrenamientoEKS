@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-api
-  namespace: default
+  name: test-api
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: flask-api
+      app: test-api
   template:
     metadata:
       labels:
-        app: flask-api
+        app: test-api
     spec:
       containers:
-        - name: test-api
-          image: 816069129828.dkr.ecr.us-east-2.amazonaws.com/test-api-repo:latest
-          ports:
-            - containerPort: 80
-
+      - name: test-api
+        image: 726181941323.dkr.ecr.us-west-2.amazonaws.com/test-api-repo:latest
+        ports:
+        - containerPort: 80
