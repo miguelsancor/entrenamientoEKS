@@ -135,9 +135,8 @@ Después de que Terraform haya creado el clúster, debe autenticarse para intera
    kubectl create namespace argocd
 
    Por defecto: kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-   
-
-   personalizado: kubectl apply -f kubernetes/argocd-service.yaml
+      
+  personalizado: kubectl apply -f kubernetes/argocd-service.yaml
    
    
    ```
