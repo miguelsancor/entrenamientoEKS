@@ -183,12 +183,15 @@ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}
 1. Añada el repositorio de la aplicación en ArgoCD:
    ```bash
 
-   argocd login 127.0.0.1:8080
+1. Recupera el password inicial de ArgoCD
+bash
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+2. Haz login correctamente
+argocd login 127.0.0.1:8080 --username admin --password <lo_que_sacaste_arriba> --insecure
 
-   argocd repo add https://github.com/miguelsancor/entrenamientoEKS.git
    ```
 
-2. Cree una nueva aplicación:
+3. Cree una nueva aplicación:
    ```bash
    argocd app create flask-api-app \
      --repo https://github.com/miguelsancor/entrenamientoEKS.git \
@@ -197,7 +200,7 @@ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}
      --dest-namespace default
    ```
 
-3. Sincronice la aplicación:
+4. Sincronice la aplicación:
    ```bash
    argocd app sync flask-api-app
    ```
